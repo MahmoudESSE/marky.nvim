@@ -16,7 +16,7 @@ jobs:
         runs-on: ${{ matrix.os }}
         steps:
           - name: Checkout Repo
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
             with:
               token: ${{ secrets.WORKFLOW_TOKEN }}
           - name: Install Neovim
@@ -43,14 +43,14 @@ jobs:
             contents: write
         steps:
           - name: Checkout Repo
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
             with:
               token: ${{ secrets.WORKFLOW_TOKEN }}
           - name: panvimdoc
             uses: kdheepak/panvimdoc@main
             with:
-              vimdoc: flash.nvim
-              version: "Neovim >= 0.8.0"
+              vimdoc: marky.nvim
+              version: "Neovim >= 0.9.0"
               demojify: true
               treesitter: true
           - name: Push changes
@@ -72,13 +72,14 @@ jobs:
           - tests
         runs-on: ubuntu-latest
         steps:
-          - uses: google-github-actions/release-please-action@v3
+          - uses: google-github-actions/release-please-action@v4
             id: release
             with:
               release-type: simple
               package-name: marky.nvim
+              token: ${{ secrets.WORKFLOW_TOKEN }}
           - name: Checkout Repo
-            uses: actions/checkout@v3
+            uses: actions/checkout@v4
             with:
               token: ${{ secrets.WORKFLOW_TOKEN }}
           - name: tag stable versions
