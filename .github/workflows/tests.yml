@@ -5,13 +5,20 @@ on:
 
 jobs:
     tests:
+        permissions:
+            actions: write
+            pull-requests: write
+            contents: write
         strategy:
           matrix:
             # os: [ubuntu-latest, windows-latest]
             os: [ubuntu-latest]
         runs-on: ${{ matrix.os }}
         steps:
-          - uses: actions/checkout@v3
+          - name: Checkout Repo
+            uses: actions/checkout@v3
+            with:
+              token: ${{ secrets.WORKFLOW_TOKEN }}
           - name: Install Neovim
             shell: bash
             run: |
@@ -30,8 +37,15 @@ jobs:
         runs-on: ubuntu-latest
         needs: tests
         if: ${{ github.ref == 'refs/heads/main' }}
+        permissions:
+            actions: write
+            pull-requests: write
+            contents: write
         steps:
-          - uses: actions/checkout@v3
+          - name: Checkout Repo
+            uses: actions/checkout@v3
+            with:
+              token: ${{ secrets.WORKFLOW_TOKEN }}
           - name: panvimdoc
             uses: kdheepak/panvimdoc@main
             with:
@@ -49,6 +63,10 @@ jobs:
     release:
         name: release
         if: ${{ github.ref == 'refs/heads/main' }}
+        permissions:
+            actions: write
+            pull-requests: write
+            contents: write
         needs:
           - docs
           - tests
@@ -59,7 +77,10 @@ jobs:
             with:
               release-type: simple
               package-name: marky.nvim
-          - uses: actions/checkout@v3
+          - name: Checkout Repo
+            uses: actions/checkout@v3
+            with:
+              token: ${{ secrets.WORKFLOW_TOKEN }}
           - name: tag stable versions
             if: ${{ steps.release.outputs.release_created }}
             run: |
