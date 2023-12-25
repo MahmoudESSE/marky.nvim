@@ -11,7 +11,7 @@ marky.marks = {}
 marky.setup = function(opts)
     options = vim.tbl_deep_extend("keep", opts, options)
 
-    vim.pretty_print(options)
+    vim.print(options)
 
     marky.initialize(options)
 end
