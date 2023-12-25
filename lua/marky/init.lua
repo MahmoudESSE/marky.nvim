@@ -1,3 +1,6 @@
+local config = require("marky.config")
+local pin = require("marky.pin")
+
 ---@type Marky
 local M = {
     options = {
@@ -9,13 +12,11 @@ M.marks = {}
 
 M.setup = function(opts)
     print("Options: " .. opts)
+
+    config.config(opts)
 end
 
-M.pin = function()
-    print("MarkyPinning")
-    vim.fn.expand("%")
-    table.insert(M.marks, vim.fn.expand("%"))
-end
+M.pin = pin
 
 M.list = function()
     if M.marks == nil then
