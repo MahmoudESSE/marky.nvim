@@ -1,4 +1,4 @@
-local marky = require("marky.config")
+local marky = require("marky.settings")
 local pin = require("marky.pin")
 
 ---@type MarkyOptions
