@@ -3,6 +3,7 @@ local marky = require("marky.settings")
 ---@type MarkyOptions
 local DEFAULT_OPTIONS = {
     order = "asc",
+    position = "bottom",
 }
 
 marky.setup = function(opts)
