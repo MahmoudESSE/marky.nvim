@@ -6,11 +6,6 @@ local M = {}
 marky.pin = require("marky.pin")
 
 marky.list = function()
-    if marky.marks == nil then
-        print("nothing to remark")
-        return
-    end
-
     for index, value in ipairs(marky.marks) do
         print("[" .. index .. "]" .. value)
     end
