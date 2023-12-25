@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/MahmoudESSE/marky.nvim/compare/v0.1.0...v0.2.0) (2023-12-25)
+
+
+### Features
+
+* **version:** bump actions version ([c0f8099](https://github.com/MahmoudESSE/marky.nvim/commit/c0f80996b3156d06bee303c0de62184657aac88e))
+
 ## [0.1.0](https://github.com/MahmoudESSE/marky.nvim/compare/v0.0.3...v0.1.0) (2023-12-25)
 
 
