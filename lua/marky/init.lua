@@ -1,32 +1,32 @@
-local config = require("marky.config")
+local marky = require("marky.config")
 local pin = require("marky.pin")
 
----@type Marky
-local M = {
-    options = {
-        order = "asc",
-    },
+---@type MarkyOptions
+local options = {
+    order = "asc",
 }
 
-M.marks = {}
+marky.marks = {}
 
-M.setup = function(opts)
-    print("Options: " .. opts)
+marky.setup = function(opts)
+    options = vim.tbl_deep_extend("keep", opts, options)
 
-    config.config(opts)
+    vim.pretty_print(options)
+
+    marky.initialize(options)
 end
 
-M.pin = pin
+marky.pin = pin
 
-M.list = function()
-    if M.marks == nil then
+marky.list = function()
+    if marky.marks == nil then
         print("nothing to remark")
         return
     end
 
-    for index, value in ipairs(M.marks) do
+    for index, value in ipairs(marky.marks) do
         print("[" .. index .. "]" .. value)
     end
 end
 
-return M
+return marky

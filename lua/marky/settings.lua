@@ -3,7 +3,7 @@ local M = {}
 
 M.marks = {}
 
-M.config = function(opts)
+M.initialize = function(opts)
     M.options = opts
 end
 

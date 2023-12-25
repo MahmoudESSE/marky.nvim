@@ -3,7 +3,7 @@
 ---@class Marky
 ---@field options MarkyOptions
 ---@field setup fun(opts: MarkyOptions?)
----@field config fun(opts: MarkyOptions?)
+---@field initialize fun(opts: MarkyOptions?)
 ---@field marks string[]
 ---@field pin MarkyPin
 ---@field list fun()
