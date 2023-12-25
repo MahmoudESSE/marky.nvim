@@ -21,8 +21,11 @@
 ```lua
 {
     "MahmoudESSE/marky.nvim",
-    event = "VeryLazy",
+    lazy = false,
     opts = {},
+    config = function(opts)
+        require("marky").setup(opts)
+    end
 }
 ```
 
