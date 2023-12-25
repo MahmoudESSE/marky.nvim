@@ -4,7 +4,7 @@ let s:save_cpo = &cpo
 
 set cpo&vim
 
-command! MarkyPin lua require("marky").pin()
+command! MarkyPin lua require("marky").pin.pin()
 
 command! MarkyList lua require("marky").list()
 

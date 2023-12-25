@@ -1,31 +1,19 @@
+local marky = require("marky.settings")
+
 ---@type Marky
-local M = {
-    options = {
-        order = "asc",
-    },
-}
+local M = {}
 
-M.marks = {}
+marky.pin = require("marky.pin")
 
-M.setup = function(opts)
-    print("Options: " .. opts)
-end
-
-M.pin = function()
-    print("MarkyPinning")
-    vim.fn.expand("%")
-    table.insert(M.marks, vim.fn.expand("%"))
-end
-
-M.list = function()
-    if M.marks == nil then
-        print("nothing to remark")
-        return
-    end
-
-    for index, value in ipairs(M.marks) do
+marky.list = function()
+    for index, value in ipairs(marky.marks) do
         print("[" .. index .. "]" .. value)
     end
 end
+
+M.pin = marky.pin
+M.list = marky.list
+M.setup = marky.setup
+M.options = marky.options
 
 return M

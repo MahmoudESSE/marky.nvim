@@ -36,8 +36,11 @@ lazy.nvim <https://github.com/folke/lazy.nvim>
 >lua
     {
         "MahmoudESSE/marky.nvim",
-        event = "VeryLazy",
+        lazy = false,
         opts = {},
+        config = function(opts)
+            require("marky").setup(opts)
+        end
     }
 <
 
