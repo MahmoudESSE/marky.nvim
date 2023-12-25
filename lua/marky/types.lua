@@ -17,7 +17,7 @@
 -- width of the window
 ---@field width number?
 -- heigth of the window
----@field heigth number?
+---@field height number?
 
 ---@class MarkyPin
 -- pin a file
@@ -26,3 +26,4 @@
 ---@class MarkyList
 -- list the marked pins
 ---@field list fun()
+---@field open_widow fun()
