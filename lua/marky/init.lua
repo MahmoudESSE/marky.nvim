@@ -1,17 +1,7 @@
 local marky = require("marky.settings")
 
----@type MarkyOptions
-local options = {
-    order = "asc",
-}
-
-marky.setup = function(opts)
-    options = vim.tbl_deep_extend("keep", opts, options)
-
-    vim.print(options)
-
-    marky.initialize(options)
-end
+---@type Marky
+local M = {}
 
 marky.pin = require("marky.pin")
 
@@ -26,4 +16,9 @@ marky.list = function()
     end
 end
 
-return marky
+M.pin = marky.pin
+M.list = marky.list
+M.setup = marky.setup
+M.options = marky.options
+
+return M
